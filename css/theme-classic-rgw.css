@@ -1,0 +1,541 @@
+/* ============================================
+   CLASSIC RED-GREEN-WHITE THEME
+   Old-school computer aesthetic
+   Early terminal / BBS / pre-Windows vibe
+   ============================================ */
+
+.scheme-classic-rgw {
+  /* Classic terminal colors */
+  --terminal-bg: #1a1a1a;         /* Near black background */
+  --terminal-green: #00ff00;       /* Bright phosphor green */
+  --terminal-amber: #ffb000;       /* Amber phosphor */
+  --terminal-red: #ff3333;         /* Error red */
+  --terminal-white: #f0f0f0;       /* White text */
+  --terminal-dim: #606060;         /* Dim text */
+  
+  /* Classic PC colors */
+  --cga-cyan: #00ffff;
+  --cga-magenta: #ff00ff;
+  --cga-red: #ff0000;
+  --cga-green: #00ff00;
+  --cga-brown: #aa5500;
+  --cga-white: #ffffff;
+  
+  /* Theme palette - Red, Green, White */
+  --bg-desktop: #0a0a0a;           /* Deep black desktop */
+  --bg-window: #111111;            /* Slightly lighter windows */
+  --bg-panel: #1a1a1a;             /* Panel background */
+  
+  --color-primary: #00ff00;        /* Green - primary */
+  --color-secondary: #ff3333;      /* Red - secondary/accent */
+  --color-tertiary: #ffffff;       /* White - highlights */
+  --color-dim: #444444;            /* Dimmed elements */
+  
+  --border-color: #333333;
+  --border-bright: #00ff00;
+  --border-red: #ff3333;
+  
+  /* Typography */
+  --font-terminal: "Courier New", "Courier", monospace;
+  --font-system: "IBM Plex Mono", "Consolas", monospace;
+}
+
+/* --------------------------------------------
+   BASE - TERMINAL AESTHETIC
+   -------------------------------------------- */
+.scheme-classic-rgw body {
+  background: var(--bg-desktop);
+  color: var(--color-primary);
+  font-family: var(--font-terminal);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 16px;
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.3);
+}
+
+/* Scanline effect */
+.scheme-classic-rgw body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* --------------------------------------------
+   CONTAINER - MONITOR FRAME
+   -------------------------------------------- */
+.scheme-classic-rgw .container {
+  background: var(--bg-window);
+  border: 2px solid var(--color-dim);
+  box-shadow: 
+    0 0 0 1px #000,
+    0 0 20px rgba(0, 255, 0, 0.1),
+    inset 0 0 40px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Monitor bezel effect */
+.scheme-classic-rgw .container::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: #2a2a2a;
+  border-radius: 8px;
+  z-index: -1;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* --------------------------------------------
+   TITLEBAR - TERMINAL HEADER
+   -------------------------------------------- */
+.scheme-classic-rgw .titlebar {
+  background: var(--bg-panel);
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  padding: 8px 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scheme-classic-rgw .titlebar::before {
+  content: '[ ';
+  color: var(--color-secondary);
+}
+
+.scheme-classic-rgw .titlebar::after {
+  content: ' ]';
+  color: var(--color-secondary);
+}
+
+/* Active titlebar - brighter */
+.scheme-classic-rgw .titlebar.active {
+  background: var(--color-primary);
+  color: var(--bg-desktop);
+  border-bottom-color: var(--color-secondary);
+}
+
+.scheme-classic-rgw .titlebar.active::before,
+.scheme-classic-rgw .titlebar.active::after {
+  color: var(--bg-desktop);
+}
+
+/* --------------------------------------------
+   NAVIGATION - TERMINAL MENU
+   -------------------------------------------- */
+.scheme-classic-rgw .sidebar {
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border-color);
+}
+
+.scheme-classic-rgw .nav-link {
+  display: block;
+  padding: 8px 12px;
+  color: var(--color-dim);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.scheme-classic-rgw .nav-link::before {
+  content: '> ';
+  color: var(--color-dim);
+}
+
+.scheme-classic-rgw .nav-link:hover {
+  color: var(--color-primary);
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.scheme-classic-rgw .nav-link:hover::before {
+  content: '> ';
+  color: var(--color-primary);
+}
+
+.scheme-classic-rgw .nav-link.active {
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+  background: rgba(0, 255, 0, 0.1);
+}
+
+.scheme-classic-rgw .nav-link.active::before {
+  content: '# ';
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------
+   BOXES - TERMINAL PANELS
+   -------------------------------------------- */
+.scheme-classic-rgw .box-raised {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  box-shadow: 
+    0 0 0 1px #000,
+    0 0 8px rgba(0, 255, 0, 0.05);
+  padding: 12px;
+}
+
+.scheme-classic-rgw .box-sunken {
+  background: #0d0d0d;
+  border: 1px solid #000;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  padding: 12px;
+}
+
+/* Terminal-style box with header */
+.scheme-classic-rgw .box-terminal {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+.scheme-classic-rgw .box-terminal-header {
+  background: var(--bg-window);
+  color: var(--color-secondary);
+  padding: 6px 12px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.scheme-classic-rgw .box-terminal-content {
+  padding: 12px;
+}
+
+/* --------------------------------------------
+   BUTTONS - TERMINAL COMMANDS
+   -------------------------------------------- */
+.scheme-classic-rgw .btn {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 6px 16px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scheme-classic-rgw .btn::before {
+  content: '[ ';
+}
+
+.scheme-classic-rgw .btn::after {
+  content: ' ]';
+}
+
+.scheme-classic-rgw .btn:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.scheme-classic-rgw .btn:active {
+  background: var(--color-primary);
+  color: var(--bg-desktop);
+}
+
+.scheme-classic-rgw .btn-primary {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.scheme-classic-rgw .btn-primary:hover {
+  background: rgba(255, 51, 51, 0.1);
+  box-shadow: 0 0 8px rgba(255, 51, 51, 0.3);
+}
+
+.scheme-classic-rgw .btn-primary:active {
+  background: var(--color-secondary);
+  color: var(--bg-desktop);
+}
+
+/* --------------------------------------------
+   INPUTS - TERMINAL ENTRY
+   -------------------------------------------- */
+.scheme-classic-rgw input[type="text"],
+.scheme-classic-rgw input[type="email"],
+.scheme-classic-rgw textarea,
+.scheme-classic-rgw select {
+  background: #0d0d0d;
+  color: var(--color-primary);
+  border: 1px solid var(--color-dim);
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 12px;
+  caret-color: var(--color-primary);
+}
+
+.scheme-classic-rgw input:focus,
+.scheme-classic-rgw textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+}
+
+/* Cursor blink effect */
+.scheme-classic-rgw input::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --------------------------------------------
+   TABLES - DATA DISPLAY
+   -------------------------------------------- */
+.scheme-classic-rgw table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.scheme-classic-rgw th {
+  color: var(--color-secondary);
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--color-secondary);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.scheme-classic-rgw td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--color-primary);
+}
+
+.scheme-classic-rgw tr:hover td {
+  background: rgba(0, 255, 0, 0.05);
+}
+
+/* --------------------------------------------
+   SCROLLBAR - TERMINAL STYLE
+   -------------------------------------------- */
+.scheme-classic-rgw ::-webkit-scrollbar {
+  width: 12px;
+  background: var(--bg-panel);
+}
+
+.scheme-classic-rgw ::-webkit-scrollbar-thumb {
+  background: var(--color-dim);
+  border: 1px solid var(--color-primary);
+}
+
+.scheme-classic-rgw ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.scheme-classic-rgw ::-webkit-scrollbar-button {
+  background: var(--bg-panel);
+  border: 1px solid var(--color-dim);
+  height: 12px;
+}
+
+/* --------------------------------------------
+   STATUS BAR - TERMINAL FOOTER
+   -------------------------------------------- */
+.scheme-classic-rgw .status-bar {
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border-color);
+  padding: 6px 12px;
+  font-size: 11px;
+  color: var(--color-dim);
+  display: flex;
+  justify-content: space-between;
+}
+
+.scheme-classic-rgw .status-bar span::before {
+  content: '> ';
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------
+   TYPOGRAPHY - TERMINAL TEXT
+   -------------------------------------------- */
+.scheme-classic-rgw h1 {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+.scheme-classic-rgw h2 {
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-top: 24px;
+}
+
+.scheme-classic-rgw h3 {
+  color: var(--color-tertiary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scheme-classic-rgw a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.scheme-classic-rgw a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------
+   SPECIAL ELEMENTS
+   -------------------------------------------- */
+/* Prompt style */
+.scheme-classic-rgw .prompt {
+  color: var(--color-primary);
+}
+
+.scheme-classic-rgw .prompt::after {
+  content: ' $';
+  color: var(--color-secondary);
+}
+
+/* Error message */
+.scheme-classic-rgw .error {
+  color: var(--color-secondary);
+}
+
+.scheme-classic-rgw .error::before {
+  content: '[ERROR] ';
+  font-weight: bold;
+}
+
+/* Success message */
+.scheme-classic-rgw .success {
+  color: var(--color-primary);
+}
+
+.scheme-classic-rgw .success::before {
+  content: '[OK] ';
+  font-weight: bold;
+}
+
+/* Warning */
+.scheme-classic-rgw .warning {
+  color: #ffb000;
+}
+
+.scheme-classic-rgw .warning::before {
+  content: '[WARN] ';
+  font-weight: bold;
+}
+
+/* Code block */
+.scheme-classic-rgw code {
+  background: #0d0d0d;
+  color: var(--color-primary);
+  padding: 2px 6px;
+  border: 1px solid var(--border-color);
+  font-family: var(--font-terminal);
+}
+
+/* Blockquote - terminal style */
+.scheme-classic-rgw blockquote {
+  border-left: 3px solid var(--color-primary);
+  margin: 12px 0;
+  padding: 8px 16px;
+  background: rgba(0, 255, 0, 0.05);
+  color: var(--color-dim);
+}
+
+/* --------------------------------------------
+   PROGRESS / METER
+   -------------------------------------------- */
+.scheme-classic-rgw .meter {
+  background: #0d0d0d;
+  border: 1px solid var(--border-color);
+  height: 16px;
+  position: relative;
+}
+
+.scheme-classic-rgw .meter::before {
+  content: '[';
+  position: absolute;
+  left: 4px;
+  color: var(--color-dim);
+}
+
+.scheme-classic-rgw .meter::after {
+  content: ']';
+  position: absolute;
+  right: 4px;
+  color: var(--color-dim);
+}
+
+.scheme-classic-rgw .meter i {
+  display: block;
+  height: 100%;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* --------------------------------------------
+   SELECTION
+   -------------------------------------------- */
+.scheme-classic-rgw ::selection {
+  background: var(--color-primary);
+  color: var(--bg-desktop);
+}
+
+/* --------------------------------------------
+   PRINT
+   -------------------------------------------- */
+@media print {
+  .scheme-classic-rgw body {
+    background: #fff !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+  
+  .scheme-classic-rgw body::before {
+    display: none !important;
+  }
+  
+  .scheme-classic-rgw .container {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .scheme-classic-rgw .container::before {
+    display: none !important;
+  }
+}
