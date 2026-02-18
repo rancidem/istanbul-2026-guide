@@ -1,0 +1,115 @@
+/* Istanbul 2026 — 90s System Aesthetic */
+/* Reference: ../static-site/styles.css (Vercel-deployed version) */
+
+:root {
+  --win-bg: #c0c0c0;
+  --win-dark: #808080;
+  --win-light: #ffffff;
+  --win-nav: #000080;
+  --win-nav-text: #ffffff;
+  --win-text: #000000;
+}
+
+body {
+  background: var(--win-bg);
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
+  margin: 0;
+  padding: 8px;
+  color: var(--win-text);
+}
+
+/* Beveled box — raised */
+.box-raised {
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-dark);
+  background: var(--win-bg);
+  padding: 8px;
+}
+
+/* Beveled box — inset/sunken */
+.box-sunken {
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-bottom: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-light);
+  background: var(--win-bg);
+  padding: 8px;
+}
+
+/* Title bar style header */
+.titlebar {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+/* Main layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 4px;
+}
+
+/* Navigation sidebar */
+.sidebar .titlebar { margin-bottom: 0; }
+.nav-link {
+  display: block;
+  padding: 3px 8px;
+  text-decoration: none;
+  color: var(--win-text);
+  font-size: 11px;
+}
+.nav-link:hover, .nav-link.active {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+/* Content area */
+h1 { font-size: 14px; margin: 0 0 8px; }
+h2 { font-size: 12px; margin: 12px 0 4px; border-bottom: 1px solid var(--win-dark); }
+a { color: #000080; }
+a:visited { color: #800080; }
+
+/* Images — inset 90s frame, scaled to 85% */
+.page-img {
+  display: block;
+  width: 85%;
+  max-width: 600px;
+  height: auto;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-bottom: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-light);
+  margin: 8px auto 4px;
+}
+.img-caption {
+  font-size: 9px;
+  color: var(--win-dark);
+  margin: 0 0 10px;
+  display: block;
+}
+
+/* Progress meter (used in packing dashboard) */
+.meter {
+  border: 2px solid var(--win-dark);
+  background: #fff;
+  height: 14px;
+  padding: 1px;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #008000;
+  transition: width 0.2s;
+}

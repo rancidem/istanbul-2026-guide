@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packing List — Istanbul 2026</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Dashboard-specific styles integrated with site CSS */
+    .packing-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 8px;
+    }
+    
+    @media (max-width: 700px) {
+      .packing-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* Signal box - weather highlight */
+    .signal-box {
+      border: 2px solid var(--win-dark);
+      background: linear-gradient(180deg, #c0e0f0, #a0d0e8);
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+    .signal-box .range { font-weight: bold; color: #000; }
+    .signal-box .pack { color: #800000; font-weight: bold; }
+    
+    /* Forecast list */
+    .forecast-list {
+      border: 2px solid var(--win-dark);
+      background: var(--win-bg);
+    }
+    .frow {
+      display: grid;
+      grid-template-columns: 60px 1fr 50px;
+      gap: 4px;
+      padding: 4px 6px;
+      border-bottom: 1px solid var(--win-dark);
+      font-size: 10px;
+    }
+    .frow:last-child { border-bottom: none; }
+    .frow b { font-size: 11px; }
+    
+    /* Progress bar */
+    .check-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      padding: 4px;
+      background: var(--win-bg);
+      border: 2px solid var(--win-dark);
+    }
+    .meter {
+      flex: 1;
+      border: 2px inset var(--win-dark);
+      height: 14px;
+      background: #fff;
+    }
+    .meter > i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: #008000;
+      transition: width 0.3s ease;
+    }
+    
+    /* Section styling */
+    .pack-section {
+      border: 2px solid var(--win-dark);
+      background: var(--win-bg);
+      margin-bottom: 8px;
+    }
+    .pack-section h4 {
+      margin: 0;
+      padding: 4px 6px;
+      background: var(--win-dark);
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .subhead {
+      margin: 0;
+      padding: 3px 6px;
+      background: #d0d0d0;
+      border-top: 1px solid var(--win-light);
+      border-bottom: 1px dashed var(--win-dark);
+      font-size: 10px;
+      font-weight: bold;
+    }
+    .checks { 
+      list-style: none; 
+      margin: 0; 
+      padding: 4px 6px; 
+      font-size: 10px;
+    }
+    .checks li { 
+      margin: 0 0 3px; 
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .checks input { 
+      margin-top: 1px; 
+    }
+    
+    /* Print styles */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .titlebar, .sidebar { display: none; }
+      .container { max-width: 100%; }
+      .packing-grid { grid-template-columns: 200px 1fr; }
+      .signal-box { border: 1px solid #000; }
+      .pack-section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Titlebar nav -->
+  <div class="titlebar" style="margin-bottom:4px;">
+    <a href="../index.html" style="color:#fff;margin-right:16px;"><span style="color:#ffd700;">[H]</span> Home</a>
+    <a href="../pages/attractions.html" style="color:#fff;margin-right:16px;">Top 10</a>
+    <a href="../pages/neighborhoods.html" style="color:#fff;margin-right:16px;">Neighborhoods</a>
+    <a href="../pages/food.html" style="color:#fff;margin-right:16px;">Food</a>
+    <a href="../pages/transport.html" style="color:#fff;margin-right:16px;">Transport</a>
+    <a href="../pages/history.html" style="color:#fff;margin-right:16px;">History</a>
+    <a href="../pages/tips.html" style="color:#fff;margin-right:16px;">Tips</a>
+    <a href="../pages/personal-picks.html" style="color:#fff;margin-right:16px;"><span style="color:#ff6600;">[P]</span> Picks</a>
+    <a href="../pages/places.html" style="color:#fff;margin-right:16px;">Places</a>
+    <a href="../pages/map.html" style="color:#fff;margin-right:16px;">Map</a>
+    <a href="../pages/packing.html" style="color:#fff;"><span style="color:#008000;">[PK]</span> Pack</a>
+  </div>
+
+  <!-- Main grid: sidebar + content -->
+  <div class="main-grid">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="box-raised" style="margin-bottom:4px;">
+        <div class="titlebar">Navigate</div>
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="../pages/attractions.html">Top 10</a>
+        <a class="nav-link" href="../pages/neighborhoods.html">Neighborhoods</a>
+        <a class="nav-link" href="../pages/food.html">Food &amp; Drink</a>
+        <a class="nav-link" href="../pages/transport.html">Transport</a>
+        <a class="nav-link" href="../pages/history.html">History</a>
+        <a class="nav-link" href="../pages/tips.html">Tips</a>
+        <a class="nav-link" href="../pages/personal-picks.html"><span style="color:#ff6600;">[P]</span> Picks</a>
+        <a class="nav-link" href="../pages/places.html">Places Index</a>
+        <a class="nav-link" href="../pages/map.html">Map</a>
+        <a class="nav-link active" href="../pages/packing.html"><span style="color:#008000;">[PK]</span> Packing</a>
+      </div>
+      
+      <div class="box-raised" style="margin-bottom:4px;">
+        <div class="titlebar">Jump To</div>
+        <a class="nav-link" href="#weather">Weather</a>
+        <a class="nav-link" href="#carry">Carry-on</a>
+        <a class="nav-link" href="#checked">Checked</a>
+        <a class="nav-link" href="#plane">Plane Wear</a>
+      </div>
+      
+      <div class="box-raised">
+        <div class="titlebar">Progress</div>
+        <div style="padding:6px;">
+          <div id="count" style="font-size:10px;font-weight:bold;margin-bottom:4px;">0 / 0 (0%)</div>
+          <div class="meter"><i id="bar"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="box-raised">
+      <h1>Packing List <span style="font-size:11px;color:#666;">— Istanbul 7 Days</span></h1>
+
+      <div class="packing-grid">
+        <!-- Left column: Weather -->
+        <aside id="weather">
+          <div class="signal-box">
+            <div class="range">~1–18°C</div>
+            <div style="font-size:10px;margin:4px 0;">Sunny days + cold snap + 1 rainy day</div>
+            <div class="pack">Layer + shell + warm accessories</div>
+          </div>
+          
+          <div class="forecast-list">
+            <div class="frow" style="background:#90ee90;"><b>Thu 19</b><span>Sunny</span><span>14/7°</span></div>
+            <div class="frow"><b>Fri 20</b><span>Sun/clouds</span><span>18/8°</span></div>
+            <div class="frow" style="background:#87ceeb;"><b>Sat 21</b><span>Showers</span><span>10/3°</span></div>
+            <div class="frow" style="background:#b0c4de;"><b>Sun 22</b><span>Chilly</span><span>5/1°</span></div>
+            <div class="frow" style="background:#90ee90;"><b>Mon 23</b><span>Sunny</span><span>9/5°</span></div>
+            <div class="frow"><b>Tue 24</b><span>Partly</span><span>11/11°</span></div>
+            <div class="frow" style="background:#90ee90;"><b>Wed 25</b><span>Sunny</span><span>14/12°</span></div>
+          </div>
+        </aside>
+
+        <!-- Right column: Packing list -->
+        <section>
+          <!-- Carry-on -->
+          <div class="pack-section" id="carry">
+            <h4>Carry-on (Keep-with-you essentials)</h4>
+            
+            <p class="subhead">Documents &amp; Money</p>
+            <ul class="checks">
+              <li><input type="checkbox">Passport + paper copy + phone scan (offline)</li>
+              <li><input type="checkbox">Printed flight + hotel confirmations</li>
+              <li><input type="checkbox">Travel insurance + emergency contacts</li>
+              <li><input type="checkbox">Wallet: 2 cards (separate 1) + EUR cash</li>
+              <li><input type="checkbox">Backup cash/card stash</li>
+              <li><input type="checkbox">Prescription copy (if needed)</li>
+              <li><input type="checkbox">Pen</li>
+            </ul>
+            
+            <p class="subhead">Health (Carry-on only)</p>
+            <ul class="checks">
+              <li><input type="checkbox">Prescription meds + <b>2 extra days</b></li>
+              <li><input type="checkbox">Mini kit: pain relief, antihistamine, plasters + <b>blister pads</b></li>
+              <li><input type="checkbox">Hand sanitizer + tissues</li>
+            </ul>
+            
+            <p class="subhead">Electronics (Carry-on only)</p>
+            <ul class="checks">
+              <li><input type="checkbox">Phone + charger + wall plug</li>
+              <li><input type="checkbox"><b>Spare charging cable</b></li>
+              <li><input type="checkbox">Power bank</li>
+              <li><input type="checkbox">Headphones</li>
+              <li><input type="checkbox">Universal adapter (Type C/F)</li>
+              <li><input type="checkbox">eSIM/SIM plan info</li>
+              <li><input type="checkbox">Optional: luggage tracker</li>
+            </ul>
+            
+            <p class="subhead">Delay-proof Spare Outfit</p>
+            <ul class="checks">
+              <li><input type="checkbox">1 top</li>
+              <li><input type="checkbox">1 underwear</li>
+              <li><input type="checkbox">1 pair socks</li>
+            </ul>
+            
+            <p class="subhead">Flight Comfort</p>
+            <ul class="checks">
+              <li><input type="checkbox">Empty water bottle</li>
+              <li><input type="checkbox">1–2 snack bars</li>
+              <li><input type="checkbox">Lip balm</li>
+              <li><input type="checkbox"><b>Earplugs</b> + <b>eye mask</b></li>
+              <li><input type="checkbox">Compression socks (optional)</li>
+            </ul>
+            
+            <p class="subhead">Airport Security (EU)</p>
+            <ul class="checks">
+              <li><input type="checkbox">Liquids ≤100ml in clear 1L bag</li>
+              <li><input type="checkbox">Batteries/power bank: carry-on only</li>
+              <li><input type="checkbox">Liquids + electronics easy to reach</li>
+            </ul>
+          </div>
+
+          <!-- Checked bag -->
+          <div class="pack-section" id="checked">
+            <h4>Checked Bag (Wardrobe + bulk liquids)</h4>
+            
+            <p class="subhead">Outer Layers</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>1</b> waterproof shell (hood ideal)</li>
+              <li><input type="checkbox"><b>1</b> warm mid-layer (puffer or fleece)</li>
+            </ul>
+            
+            <p class="subhead">Tops</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>3</b> long-sleeve tops</li>
+              <li><input type="checkbox"><b>2</b> short-sleeve tops</li>
+              <li><input type="checkbox"><b>1</b> nicer top (dinner/rooftop)</li>
+            </ul>
+            
+            <p class="subhead">Bottoms</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>2</b> pants (jeans/chinos/technical)</li>
+              <li><input type="checkbox"><b>1</b> comfy bottom (joggers/leggings)</li>
+            </ul>
+            
+            <p class="subhead">Thermals (for cold days)</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>1</b> thermal top (thin)</li>
+              <li><input type="checkbox"><b>1</b> thermal bottom (optional)</li>
+            </ul>
+            
+            <p class="subhead">Underwear &amp; Socks</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>7–8</b> underwear</li>
+              <li><input type="checkbox"><b>6–7</b> socks (1–2 warm pairs)</li>
+            </ul>
+            
+            <p class="subhead">Sleep</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>1</b> sleep set</li>
+            </ul>
+            
+            <p class="subhead">Warm Accessories (High Impact)</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>1</b> scarf/shawl (warmth + mosque)</li>
+              <li><input type="checkbox"><b>1</b> beanie</li>
+              <li><input type="checkbox"><b>1</b> pair light gloves</li>
+            </ul>
+            
+            <p class="subhead">Shoes</p>
+            <ul class="checks">
+              <li><input type="checkbox"><b>1</b> primary walking shoe (broken-in) — <i>wear on travel day</i></li>
+              <li><input type="checkbox"><b>1</b> backup pair (water-resistant)</li>
+            </ul>
+            
+            <p class="subhead">Toiletries (Liquids Here)</p>
+            <ul class="checks">
+              <li><input type="checkbox">Toothbrush + toothpaste</li>
+              <li><input type="checkbox">Deodorant</li>
+              <li><input type="checkbox">Shampoo/conditioner/body wash</li>
+              <li><input type="checkbox">Moisturizer</li>
+              <li><input type="checkbox">Sunscreen (small)</li>
+              <li><input type="checkbox">Razor/grooming kit</li>
+              <li><input type="checkbox">Contact lens supplies (if needed)</li>
+            </ul>
+            
+            <p class="subhead">Day-to-day Extras</p>
+            <ul class="checks">
+              <li><input type="checkbox">Small daypack or crossbody (zippered)</li>
+              <li><input type="checkbox">Sunglasses</li>
+              <li><input type="checkbox">Compact umbrella (optional)</li>
+              <li><input type="checkbox">Wet wipes (optional)</li>
+              <li><input type="checkbox">Laundry bag / packing cubes (optional)</li>
+            </ul>
+            
+            <p class="subhead">Checked-bag Safety</p>
+            <ul class="checks">
+              <li><input type="checkbox">Luggage tag outside + contact card inside</li>
+              <li><input type="checkbox">Photo of checked bag (for lost luggage)</li>
+              <li><input type="checkbox"><b>Do NOT</b> pack passport, meds, power bank, valuables</li>
+            </ul>
+          </div>
+
+          <!-- Wear on plane -->
+          <div class="pack-section" id="plane">
+            <h4>Wear-on-the-plane (Saves space/weight)</h4>
+            <ul class="checks">
+              <li><input type="checkbox">Bulkiest shoes</li>
+              <li><input type="checkbox">Mid-layer (puffer/fleece)</li>
+              <li><input type="checkbox">Waterproof shell</li>
+              <li><input type="checkbox">Scarf (plane blanket)</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="box-sunken" style="padding:6px;margin-top:8px;background:#f5f5f5;">
+        <b><span style="color:#ffd700;">[*]</span> Pro Tip:</b> Layering is key for Istanbul's variable February weather. Pack items that work together in combinations.
+        <span style="float:right;font-size:10px;"><a href="#" onclick="window.print();return false;">[Print]</a></span>
+      </div>
+    </div>
+
+  </div><!-- /main-grid -->
+
+  <div style="text-align:center;font-size:10px;color:#808080;margin-top:6px;padding:4px;border-top:1px solid #808080;">
+    Istanbul 2026 · Enhanced Travel Guide · <span id="footer-count">0% packed</span>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const checks = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  const count = document.getElementById('count');
+  const footerCount = document.getElementById('footer-count');
+  const bar = document.getElementById('bar');
+  const key = 'istanbul-packing-v1';
+
+  // Load saved state
+  const saved = JSON.parse(localStorage.getItem(key) || '[]');
+  checks.forEach((el, i) => { if (saved[i]) el.checked = true; });
+
+  function update() {
+    const done = checks.filter(c => c.checked).length;
+    const total = checks.length;
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    
+    count.textContent = done + ' / ' + total + ' (' + pct + '%)';
+    if (footerCount) footerCount.textContent = pct + '% packed';
+    bar.style.width = pct + '%';
+    
+    localStorage.setItem(key, JSON.stringify(checks.map(c => c.checked)));
+  }
+
+  checks.forEach(c => c.addEventListener('change', update));
+  update();
+})();
+</script>
+
+</body>
+</html>
