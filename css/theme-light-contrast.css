@@ -1,0 +1,311 @@
+/* ============================================
+   LIGHT BACKGROUND CONTRAST VARIATIONS
+   For maximum readability while maintaining Win31 aesthetic
+   ============================================ */
+
+/* --------------------------------------------
+   VARIATION 1: PURE WHITE CONTENT
+   Maximum contrast, cleanest look
+   -------------------------------------------- */
+.scheme-light-white {
+  --bg-desktop: #f0f0f0;
+  --bg-window: #ffffff;
+  --titlebar: #000080;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+  
+  --win-bg: #ffffff;
+  --win-dark: #a0a0a0;
+  --win-light: #ffffff;
+  --win-nav: #000080;
+  --win-nav-text: #ffffff;
+  --win-text: #000000;
+}
+
+.scheme-light-white body {
+  background: var(--bg-desktop);
+}
+
+.scheme-light-white .container {
+  background: #ffffff;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+.scheme-light-white .box-raised {
+  background: #ffffff;
+  border-color: #e0e0e0 #a0a0a0 #a0a0a0 #e0e0e0;
+}
+
+.scheme-light-white .box-sunken {
+  background: #f5f5f5;
+  border-color: #a0a0a0 #ffffff #ffffff #a0a0a0;
+}
+
+/* --------------------------------------------
+   VARIATION 2: WARM IVORY
+   Easier on eyes than pure white
+   -------------------------------------------- */
+.scheme-light-ivory {
+  --bg-desktop: #e8e4d8;
+  --bg-window: #fffef5;
+  --titlebar: #000080;
+  --titlebar-text: #ffffff;
+  --text: #1a1a1a;
+  
+  --win-bg: #fffef5;
+  --win-dark: #b8b0a0;
+  --win-light: #ffffff;
+  --win-nav: #000080;
+  --win-nav-text: #ffffff;
+  --win-text: #1a1a1a;
+}
+
+.scheme-light-ivory body {
+  background: var(--bg-desktop);
+}
+
+.scheme-light-ivory .container {
+  background: #fffef5;
+  border: 2px solid;
+  border-color: #ffffff #c0b8a8 #c0b8a8 #ffffff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+}
+
+/* --------------------------------------------
+   VARIATION 3: COOL MINT
+   Fresh, modern light theme
+   -------------------------------------------- */
+.scheme-light-mint {
+  --bg-desktop: #e0e8e4;
+  --bg-window: #f0f8f5;
+  --titlebar: #006060;
+  --titlebar-text: #ffffff;
+  --text: #1a1a1a;
+  
+  --win-bg: #f0f8f5;
+  --win-dark: #a0b0a8;
+  --win-light: #ffffff;
+  --win-nav: #006060;
+  --win-nav-text: #ffffff;
+  --win-text: #1a1a1a;
+}
+
+.scheme-light-mint body {
+  background: var(--bg-desktop);
+}
+
+.scheme-light-mint .container {
+  background: #f0f8f5;
+  border: 2px solid;
+  border-color: #ffffff #a8b8b0 #a8b8b0 #ffffff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.scheme-light-mint .titlebar,
+.scheme-light-mint .nav-link:hover,
+.scheme-light-mint .nav-link.active {
+  background: #006060;
+}
+
+/* --------------------------------------------
+   VARIATION 4: SOFT LAVENDER
+   Gentle, distinctive
+   -------------------------------------------- */
+.scheme-light-lavender {
+  --bg-desktop: #e4e0e8;
+  --bg-window: #f5f0f8;
+  --titlebar: #503060;
+  --titlebar-text: #ffffff;
+  --text: #1a1a1a;
+  
+  --win-bg: #f5f0f8;
+  --win-dark: #b0a8b8;
+  --win-light: #ffffff;
+  --win-nav: #503060;
+  --win-nav-text: #ffffff;
+  --win-text: #1a1a1a;
+}
+
+.scheme-light-lavender body {
+  background: var(--bg-desktop);
+}
+
+.scheme-light-lavender .container {
+  background: #f5f0f8;
+  border: 2px solid;
+  border-color: #ffffff #b0a8b8 #b0a8b8 #ffffff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.scheme-light-lavender .titlebar,
+.scheme-light-lavender .nav-link:hover,
+.scheme-light-lavender .nav-link.active {
+  background: #503060;
+}
+
+/* --------------------------------------------
+   VARIATION 5: CREAMY BEIGE
+   Warm, paper-like
+   -------------------------------------------- */
+.scheme-light-beige {
+  --bg-desktop: #d8d0c0;
+  --bg-window: #f5f0e8;
+  --titlebar: #604020;
+  --titlebar-text: #ffffff;
+  --text: #2a2010;
+  
+  --win-bg: #f5f0e8;
+  --win-dark: #b0a080;
+  --win-light: #ffffff;
+  --win-nav: #604020;
+  --win-nav-text: #ffffff;
+  --win-text: #2a2010;
+}
+
+.scheme-light-beige body {
+  background: var(--bg-desktop);
+}
+
+.scheme-light-beige .container {
+  background: #f5f0e8;
+  border: 2px solid;
+  border-color: #ffffff #c0b090 #c0b090 #ffffff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+}
+
+.scheme-light-beige .titlebar,
+.scheme-light-beige .nav-link:hover,
+.scheme-light-beige .nav-link.active {
+  background: #604020;
+}
+
+/* --------------------------------------------
+   VARIATION 6: FOREST-BORDEAUX LIGHT
+   Lighter version of the hybrid theme
+   -------------------------------------------- */
+.scheme-forest-bordeaux-light {
+  --bg-desktop: #e8f0e0;
+  --bg-window: #faf8f5;
+  --titlebar: #8b3a44;
+  --titlebar-text: #ffffff;
+  --text: #1a1a1a;
+  
+  --win-bg: #faf8f5;
+  --win-dark: #c4b8a8;
+  --win-light: #ffffff;
+  --win-nav: #8b3a44;
+  --win-nav-text: #ffffff;
+  --win-text: #1a1a1a;
+  
+  --accent-primary: #8b3a44;
+  --accent-secondary: #5a8a30;
+}
+
+.scheme-forest-bordeaux-light body {
+  background: var(--bg-desktop);
+}
+
+.scheme-forest-bordeaux-light .container {
+  background: #faf8f5;
+  border: 2px solid;
+  border-color: #ffffff #d0c8b8 #d0c8b8 #ffffff;
+  box-shadow: 2px 2px 10px rgba(45,80,22,0.15);
+}
+
+.scheme-forest-bordeaux-light .titlebar {
+  background: linear-gradient(180deg, #a0505a 0%, #8b3a44 100%);
+}
+
+.scheme-forest-bordeaux-light .nav-link:hover,
+.scheme-forest-bordeaux-light .nav-link.active {
+  background: linear-gradient(180deg, #a0505a 0%, #8b3a44 100%);
+}
+
+.scheme-forest-bordeaux-light h1,
+.scheme-forest-bordeaux-light h2 {
+  color: #6b2a32;
+  border-bottom-color: #d4c4b0;
+}
+
+.scheme-forest-bordeaux-light a {
+  color: #4a7c23;
+}
+
+.scheme-forest-bordeaux-light a:hover {
+  color: #8b3a44;
+}
+
+.scheme-forest-bordeaux-light .btn {
+  background: linear-gradient(180deg, #ffffff 0%, #f0ece0 100%);
+  border-color: #ffffff #d0c8b8 #d0c8b8 #ffffff;
+}
+
+.scheme-forest-bordeaux-light .btn:hover {
+  background: linear-gradient(180deg, #a0505a 0%, #8b3a44 100%);
+}
+
+.scheme-forest-bordeaux-light .status-bar {
+  background: linear-gradient(180deg, #6a9a40 0%, #5a8a30 100%);
+}
+
+/* --------------------------------------------
+   COMMON LIGHT THEME ENHANCEMENTS
+   -------------------------------------------- */
+
+/* Enhanced shadows for depth on light backgrounds */
+.scheme-light-white .box-raised,
+.scheme-light-ivory .box-raised,
+.scheme-light-mint .box-raised,
+.scheme-light-lavender .box-raised,
+.scheme-light-beige .box-raised,
+.scheme-forest-bordeaux-light .box-raised {
+  box-shadow: 
+    1px 1px 0 rgba(0,0,0,0.05),
+    2px 2px 4px rgba(0,0,0,0.08);
+}
+
+/* Better focus indicators for light themes */
+.scheme-light-white a:focus-visible,
+.scheme-light-ivory a:focus-visible,
+.scheme-light-mint a:focus-visible,
+.scheme-light-lavender a:focus-visible,
+.scheme-light-beige a:focus-visible,
+.scheme-forest-bordeaux-light a:focus-visible {
+  outline: 2px solid #000080;
+  outline-offset: 2px;
+}
+
+/* Improved table readability */
+.scheme-light-white tr:nth-child(even),
+.scheme-light-ivory tr:nth-child(even),
+.scheme-light-mint tr:nth-child(even),
+.scheme-light-lavender tr:nth-child(even),
+.scheme-light-beige tr:nth-child(even),
+.scheme-forest-bordeaux-light tr:nth-child(even) {
+  background: rgba(0,0,0,0.02);
+}
+
+/* Print styles for all light themes */
+@media print {
+  .scheme-light-white body,
+  .scheme-light-ivory body,
+  .scheme-light-mint body,
+  .scheme-light-lavender body,
+  .scheme-light-beige body,
+  .scheme-forest-bordeaux-light body {
+    background: #fff !important;
+  }
+  
+  .scheme-light-white .container,
+  .scheme-light-ivory .container,
+  .scheme-light-mint .container,
+  .scheme-light-lavender .container,
+  .scheme-light-beige .container,
+  .scheme-forest-bordeaux-light .container {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

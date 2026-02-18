@@ -1,0 +1,299 @@
+/* ============================================
+   FOREST + BORDEAUX HYBRID THEME
+   Mixed warm maroon with natural green accents
+   ============================================ */
+
+/* --------------------------------------------
+   BASE: FOREST-BORDEAUX HYBRID
+   -------------------------------------------- */
+.scheme-forest-bordeaux {
+  /* Desktop: Deep forest green */
+  --bg-desktop: #2d5016;
+  
+  /* Windows: Warm cream (lighter for contrast) */
+  --bg-window: #f5f0e8;
+  
+  /* Titlebar: Bordeaux maroon */
+  --titlebar: #722f37;
+  --titlebar-text: #ffffff;
+  
+  /* Text: Near-black for readability */
+  --text: #1a1a1a;
+  
+  /* Win31 System Colors */
+  --win-bg: #f5f0e8;
+  --win-dark: #8b7355;
+  --win-light: #ffffff;
+  --win-nav: #722f37;
+  --win-nav-text: #ffffff;
+  --win-text: #1a1a1a;
+  
+  /* Accent Colors: Forest + Bordeaux blend */
+  --accent-primary: #722f37;    /* Bordeaux */
+  --accent-secondary: #4a7c23;  /* Forest green */
+  --accent-tertiary: #d4a574;   /* Warm tan */
+  
+  /* Semantic Colors */
+  --color-success: #4a7c23;
+  --color-warning: #c9a227;
+  --color-error: #a03030;
+  --color-info: #4a6fa5;
+}
+
+/* --------------------------------------------
+   BODY & CONTAINER
+   -------------------------------------------- */
+.scheme-forest-bordeaux body {
+  background: var(--bg-desktop);
+  color: var(--text);
+}
+
+.scheme-forest-bordeaux .container {
+  background: var(--bg-window);
+  border: 3px solid;
+  border-color: #8b6914 #3d2914 #3d2914 #8b6914;
+  box-shadow: 
+    0 0 0 1px #5a4a3a,
+    4px 4px 12px rgba(0,0,0,0.3);
+}
+
+/* --------------------------------------------
+   TITLEBARS & NAVIGATION
+   -------------------------------------------- */
+.scheme-forest-bordeaux .titlebar {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+  border-bottom: 2px solid #4a1f24;
+}
+
+.scheme-forest-bordeaux .nav-link:hover,
+.scheme-forest-bordeaux .nav-link.active {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+}
+
+/* --------------------------------------------
+   BOXES & PANELS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .box-raised {
+  background: var(--bg-window);
+  border-color: #ffffff #c4b5a0 #c4b5a0 #ffffff;
+  box-shadow: inset 0 0 0 1px #e8e0d5;
+}
+
+.scheme-forest-bordeaux .box-sunken {
+  background: #ebe5dc;
+  border-color: #c4b5a0 #ffffff #ffffff #c4b5a0;
+}
+
+/* --------------------------------------------
+   ACCENT ELEMENTS
+   -------------------------------------------- */
+.scheme-forest-bordeaux h1,
+.scheme-forest-bordeaux h2 {
+  color: #722f37;
+  border-bottom-color: #d4a574;
+}
+
+.scheme-forest-bordeaux a {
+  color: #4a7c23;
+}
+
+.scheme-forest-bordeaux a:hover {
+  color: #722f37;
+}
+
+.scheme-forest-bordeaux a:visited {
+  color: #5a3a50;
+}
+
+/* --------------------------------------------
+   BUTTONS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .btn {
+  background: linear-gradient(180deg, #f5f0e8 0%, #e8e0d5 100%);
+  border-color: #ffffff #b8a890 #b8a890 #ffffff;
+  color: #1a1a1a;
+}
+
+.scheme-forest-bordeaux .btn:hover {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+  color: #ffffff;
+  border-color: #a0505a #4a1f24 #4a1f24 #a0505a;
+}
+
+.scheme-forest-bordeaux .btn:active {
+  background: #5a2028;
+  border-color: #4a1f24 #a0505a #a0505a #4a1f24;
+}
+
+/* --------------------------------------------
+   STATUS BAR
+   -------------------------------------------- */
+.scheme-forest-bordeaux .status-bar {
+  background: linear-gradient(180deg, #4a7c23 0%, #3d6620 100%);
+  color: #ffffff;
+  border-top: 2px solid #5a9a30;
+}
+
+/* --------------------------------------------
+   SCROLLBARS
+   -------------------------------------------- */
+.scheme-forest-bordeaux ::-webkit-scrollbar {
+  background: #e8e0d5;
+}
+
+.scheme-forest-bordeaux ::-webkit-scrollbar-thumb {
+  background: #d4c4b0;
+  border-color: #f5f0e8 #b8a890 #b8a890 #f5f0e8;
+}
+
+.scheme-forest-bordeaux ::-webkit-scrollbar-button {
+  background: #e8e0d5;
+  border-color: #ffffff #b8a890 #b8a890 #ffffff;
+}
+
+/* --------------------------------------------
+   SPECIAL MARKERS (Bracket Notation)
+   -------------------------------------------- */
+.scheme-forest-bordeaux [style*="color:#ffd700"] {
+  color: #c9a227 !important; /* Deeper gold */
+}
+
+.scheme-forest-bordeaux [style*="color:#ff6600"] {
+  color: #b87333 !important; /* Copper */
+}
+
+.scheme-forest-bordeaux [style*="color:#008000"] {
+  color: #4a7c23 !important; /* Forest green */
+}
+
+/* --------------------------------------------
+   TABLES
+   -------------------------------------------- */
+.scheme-forest-bordeaux table {
+  border-color: #c4b5a0;
+}
+
+.scheme-forest-bordeaux th {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+  color: #ffffff;
+}
+
+.scheme-forest-bordeaux tr:nth-child(even) {
+  background: #f0ebe3;
+}
+
+.scheme-forest-bordeaux tr:nth-child(odd) {
+  background: #f5f0e8;
+}
+
+/* --------------------------------------------
+   INPUT FIELDS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .win31-input,
+.scheme-forest-bordeaux .win31-textarea,
+.scheme-forest-bordeaux .win31-select {
+  background: #ffffff;
+  border-color: #b8a890 #ffffff #ffffff #b8a890;
+  color: #1a1a1a;
+}
+
+.scheme-forest-bordeaux .win31-input:focus,
+.scheme-forest-bordeaux .win31-textarea:focus {
+  outline-color: #722f37;
+}
+
+/* --------------------------------------------
+   GROUP BOXES
+   -------------------------------------------- */
+.scheme-forest-bordeaux .group-box {
+  background: var(--bg-window);
+  border-color: #ffffff #c4b5a0 #c4b5a0 #ffffff;
+}
+
+.scheme-forest-bordeaux .group-header:hover {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+}
+
+/* --------------------------------------------
+   DIALOGS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .dialog-box {
+  background: var(--bg-window);
+  border-color: #ffffff #c4b5a0 #c4b5a0 #ffffff;
+}
+
+.scheme-forest-bordeaux .dialog-titlebar {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+}
+
+.scheme-forest-bordeaux .dialog-info .dialog-titlebar {
+  background: linear-gradient(180deg, #5a7ca8 0%, #4a6fa5 100%);
+}
+
+.scheme-forest-bordeaux .dialog-warning .dialog-titlebar {
+  background: linear-gradient(180deg, #c9a227 0%, #b8941f 100%);
+  color: #1a1a1a;
+}
+
+.scheme-forest-bordeaux .dialog-error .dialog-titlebar {
+  background: linear-gradient(180deg, #a03030 0%, #802020 100%);
+}
+
+/* --------------------------------------------
+   TABS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .win31-tab {
+  background: #e8e0d5;
+  border-color: #ffffff #c4b5a0 #c4b5a0 #ffffff;
+}
+
+.scheme-forest-bordeaux .win31-tab:hover {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+  color: #ffffff;
+}
+
+.scheme-forest-bordeaux .win31-tab.active {
+  background: var(--bg-window);
+  border-bottom-color: var(--bg-window);
+}
+
+/* --------------------------------------------
+   ICONS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .win31-icon {
+  background: linear-gradient(180deg, #f5f0e8 0%, #e8e0d5 100%);
+  border-color: #ffffff #c4b5a0 #c4b5a0 #ffffff;
+}
+
+.scheme-forest-bordeaux .win31-icon-container:hover .win31-icon {
+  background: linear-gradient(180deg, #8b3a44 0%, #722f37 100%);
+}
+
+/* --------------------------------------------
+   METER/PROGRESS
+   -------------------------------------------- */
+.scheme-forest-bordeaux .meter {
+  border-color: #b8a890;
+  background: #ffffff;
+}
+
+.scheme-forest-bordeaux .meter i {
+  background: linear-gradient(180deg, #5a9a30 0%, #4a7c23 100%);
+}
+
+/* --------------------------------------------
+   PRINT STYLES
+   -------------------------------------------- */
+@media print {
+  .scheme-forest-bordeaux body,
+  .scheme-forest-bordeaux .container {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  .scheme-forest-bordeaux .titlebar,
+  .scheme-forest-bordeaux .status-bar {
+    background: #722f37 !important;
+    color: #fff !important;
+  }
+}
