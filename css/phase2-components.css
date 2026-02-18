@@ -1,0 +1,435 @@
+/* ============================================
+   PHASE 2 COMPONENTS - Win31 Dialogs & Groups
+   ============================================ */
+
+/* --------------------------------------------
+   DIALOG / MODAL SYSTEM
+   -------------------------------------------- */
+
+.dialog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-overlay.active {
+  display: flex;
+}
+
+.dialog-box {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  min-width: 300px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.dialog-titlebar {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+  padding: 3px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.dialog-close {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  width: 18px;
+  height: 16px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-close:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.dialog-close:active {
+  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
+}
+
+.dialog-content {
+  padding: 12px;
+}
+
+.dialog-buttons {
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid var(--win-dark);
+}
+
+/* Dialog types */
+.dialog-info .dialog-titlebar { background: #000080; }
+.dialog-warning .dialog-titlebar { background: #808000; }
+.dialog-error .dialog-titlebar { background: #800000; }
+
+/* --------------------------------------------
+   GROUP BOX (Program Manager Style)
+   -------------------------------------------- */
+
+.group-box {
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  margin-bottom: 8px;
+  background: var(--win-bg);
+}
+
+.group-header {
+  background: var(--win-bg);
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.group-header:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.group-icon {
+  font-family: monospace;
+  font-size: 10px;
+  width: 16px;
+  text-align: center;
+}
+
+.group-content {
+  padding: 8px;
+  border-top: 1px solid var(--win-dark);
+}
+
+.group-box.collapsed .group-content {
+  display: none;
+}
+
+.group-box.collapsed .group-icon::before {
+  content: '[+]';
+}
+
+.group-box:not(.collapsed) .group-icon::before {
+  content: '[-]';
+}
+
+/* Group variations */
+.group-box.raised {
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+/* --------------------------------------------
+   INPUT FIELDS (Win31 Style)
+   -------------------------------------------- */
+
+.win31-input {
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
+  padding: 3px 6px;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+.win31-input:focus {
+  outline: 1px dotted #000;
+  outline-offset: 2px;
+}
+
+.win31-input:disabled {
+  background: var(--win-bg);
+  color: var(--win-dark);
+}
+
+/* Textarea */
+.win31-textarea {
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
+  padding: 6px;
+  font-size: 11px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* Select/Dropdown */
+.win31-select {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Checkbox */
+.win31-checkbox {
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  border: 1px solid var(--win-dark);
+  margin-right: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.win31-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Radio button */
+.win31-radio {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid var(--win-dark);
+  border-radius: 50%;
+  margin-right: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.win31-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* --------------------------------------------
+   LIST BOX (Win31 Style)
+   -------------------------------------------- */
+
+.win31-listbox {
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
+  padding: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.win31-listbox-item {
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.win31-listbox-item:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.win31-listbox-item.selected {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+/* --------------------------------------------
+   TABS (Property Sheet Style)
+   -------------------------------------------- */
+
+.win31-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--win-dark);
+  margin-bottom: -2px;
+}
+
+.win31-tab {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  border-bottom: none;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin-right: 2px;
+  position: relative;
+  top: 2px;
+}
+
+.win31-tab:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.win31-tab.active {
+  background: var(--win-bg);
+  border-bottom: 2px solid var(--win-bg);
+  z-index: 1;
+}
+
+.win31-tab-content {
+  display: none;
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  padding: 12px;
+}
+
+.win31-tab-content.active {
+  display: block;
+}
+
+/* --------------------------------------------
+   MENU BAR (Win31 Style)
+   -------------------------------------------- */
+
+.win31-menubar {
+  background: var(--win-bg);
+  border-bottom: 2px solid var(--win-dark);
+  padding: 2px 4px;
+  display: flex;
+  gap: 16px;
+}
+
+.win31-menu-item {
+  padding: 2px 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.win31-menu-item:hover,
+.win31-menu-item.active {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+/* Underlined accelerator key */
+.win31-menu-accel {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------
+   SEPARATOR LINES
+   -------------------------------------------- */
+
+.win31-separator {
+  height: 2px;
+  background: var(--win-dark);
+  border-bottom: 1px solid var(--win-light);
+  margin: 8px 0;
+}
+
+.win31-separator-vertical {
+  width: 2px;
+  background: var(--win-dark);
+  border-right: 1px solid var(--win-light);
+  margin: 0 8px;
+}
+
+/* --------------------------------------------
+   ICONS (32x32 Style)
+   -------------------------------------------- */
+
+.win31-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  font-size: 16px;
+}
+
+.win31-icon-label {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 4px;
+  max-width: 64px;
+  word-wrap: break-word;
+}
+
+.win31-icon-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.win31-icon-container:hover .win31-icon {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.win31-icon-container:hover .win31-icon-label {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+/* --------------------------------------------
+   ANIMATIONS (Subtle 90s feel)
+   -------------------------------------------- */
+
+@keyframes win31-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.win31-cursor {
+  animation: win31-blink 1s step-end infinite;
+}
+
+@keyframes win31-hourglass {
+  0% { content: '⏳'; }
+  25% { content: '⌛'; }
+  50% { content: '⏳'; }
+  75% { content: '⌛'; }
+  100% { content: '⏳'; }
+}
+
+.win31-loading::after {
+  content: '⏳';
+  animation: win31-hourglass 2s step-end infinite;
+}
+
+/* --------------------------------------------
+   PRINT STYLES
+   -------------------------------------------- */
+
+@media print {
+  .dialog-overlay,
+  .win31-menubar,
+  .group-header {
+    display: none !important;
+  }
+  
+  .group-content {
+    display: block !important;
+  }
+}

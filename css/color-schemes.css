@@ -1,0 +1,294 @@
+/* ============================================
+   WIN31 COLOR SCHEME VARIATIONS
+   Authentic Windows 3.1 color schemes
+   ============================================ */
+
+/* --------------------------------------------
+   BASE VARIABLES (Windows Default)
+   -------------------------------------------- */
+:root {
+  --bg-desktop: #c0c0c0;
+  --bg-window: #c0c0c0;
+  --titlebar: #000080;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+  --win-bg: #c0c0c0;
+  --win-dark: #808080;
+  --win-light: #ffffff;
+  --win-nav: #000080;
+  --win-nav-text: #ffffff;
+  --win-text: #000000;
+  --accent: #000080;
+}
+
+/* --------------------------------------------
+   SCHEME: OCEAN (Teal Desktop)
+   Recommended for Istanbul Guide
+   -------------------------------------------- */
+.scheme-ocean {
+  --bg-desktop: #008080;
+  --bg-window: #c0c0c0;
+  --titlebar: #000080;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+}
+
+.scheme-ocean body {
+  background: var(--bg-desktop);
+}
+
+.scheme-ocean .container {
+  background: var(--bg-window);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+}
+
+/* --------------------------------------------
+   SCHEME: BORDEAUX (Maroon)
+   Sophisticated, warm
+   -------------------------------------------- */
+.scheme-bordeaux {
+  --bg-desktop: #800000;
+  --bg-window: #c0c0c0;
+  --titlebar: #600000;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+  --win-nav: #600000;
+}
+
+.scheme-bordeaux body {
+  background: var(--bg-desktop);
+}
+
+.scheme-bordeaux .titlebar,
+.scheme-bordeaux .nav-link:hover,
+.scheme-bordeaux .nav-link.active {
+  background: var(--titlebar);
+}
+
+/* --------------------------------------------
+   SCHEME: BLACK LEATHER (Dark)
+   Modern dark mode
+   -------------------------------------------- */
+.scheme-dark {
+  --bg-desktop: #404040;
+  --bg-window: #606060;
+  --titlebar: #000000;
+  --titlebar-text: #c0c0c0;
+  --text: #c0c0c0;
+  --win-bg: #606060;
+  --win-dark: #404040;
+  --win-light: #808080;
+  --win-nav: #000000;
+  --win-nav-text: #c0c0c0;
+  --win-text: #c0c0c0;
+}
+
+.scheme-dark body {
+  background: var(--bg-desktop);
+  color: var(--text);
+}
+
+.scheme-dark .box-raised,
+.scheme-dark .box-sunken {
+  background: var(--bg-window);
+}
+
+.scheme-dark a {
+  color: #8080ff;
+}
+
+.scheme-dark a:visited {
+  color: #ff80ff;
+}
+
+/* --------------------------------------------
+   SCHEME: HOT DOG STAND (Easter Egg)
+   Iconic 90s garishness
+   -------------------------------------------- */
+.scheme-hotdog {
+  --bg-desktop: #ff0000;
+  --bg-window: #ff0000;
+  --titlebar: #ffff00;
+  --titlebar-text: #000000;
+  --text: #ffffff;
+  --win-bg: #ff0000;
+  --win-dark: #800000;
+  --win-light: #ff8080;
+  --win-nav: #ffff00;
+  --win-nav-text: #000000;
+  --win-text: #ffffff;
+}
+
+.scheme-hotdog body {
+  background: var(--bg-desktop);
+  color: var(--text);
+}
+
+.scheme-hotdog .titlebar {
+  background: #ffff00;
+  color: #000000;
+}
+
+.scheme-hotdog .nav-link:hover,
+.scheme-hotdog .nav-link.active {
+  background: #ffff00;
+  color: #000000;
+}
+
+.scheme-hotdog a {
+  color: #ffff00;
+}
+
+/* --------------------------------------------
+   SCHEME: FOREST (Green)
+   Nature inspired
+   -------------------------------------------- */
+.scheme-forest {
+  --bg-desktop: #004000;
+  --bg-window: #c0c0c0;
+  --titlebar: #008000;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+  --win-nav: #008000;
+}
+
+.scheme-forest body {
+  background: var(--bg-desktop);
+}
+
+/* --------------------------------------------
+   SCHEME: MIDNIGHT (Deep Blue)
+   Corporate, sophisticated
+   -------------------------------------------- */
+.scheme-midnight {
+  --bg-desktop: #000040;
+  --bg-window: #c0c0c0;
+  --titlebar: #000080;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+}
+
+.scheme-midnight body {
+  background: var(--bg-desktop);
+}
+
+/* --------------------------------------------
+   SCHEME: PARCHMENT (Cream)
+   Travel guide aesthetic
+   -------------------------------------------- */
+.scheme-parchment {
+  --bg-desktop: #f5f5dc;
+  --bg-window: #f5f5dc;
+  --titlebar: #800000;
+  --titlebar-text: #ffffff;
+  --text: #000000;
+  --win-bg: #f5f5dc;
+  --win-dark: #a0a080;
+  --win-light: #fffff0;
+  --win-nav: #800000;
+}
+
+.scheme-parchment body {
+  background: var(--bg-desktop);
+}
+
+.scheme-parchment .box-raised,
+.scheme-parchment .box-sunken {
+  background: #fffff0;
+}
+
+/* --------------------------------------------
+   THEME SELECTOR COMPONENT
+   -------------------------------------------- */
+
+.theme-selector {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  padding: 12px;
+}
+
+.theme-selector-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--win-dark);
+  padding-bottom: 4px;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.theme-option:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+  margin: 0 -12px;
+  padding: 4px 12px;
+}
+
+.theme-preview {
+  width: 32px;
+  height: 20px;
+  border: 1px solid var(--win-dark);
+}
+
+.theme-preview.windows { background: #c0c0c0; }
+.theme-preview.ocean { background: #008080; }
+.theme-preview.bordeaux { background: #800000; }
+.theme-preview.dark { background: #404040; }
+.theme-preview.hotdog { background: #ff0000; }
+.theme-preview.forest { background: #004000; }
+.theme-preview.midnight { background: #000040; }
+.theme-preview.parchment { background: #f5f5dc; }
+
+/* --------------------------------------------
+   DYNAMIC THEME APPLICATION
+   -------------------------------------------- */
+
+/* Apply theme class to body element */
+body.scheme-ocean,
+body.scheme-bordeaux,
+body.scheme-dark,
+body.scheme-hotdog,
+body.scheme-forest,
+body.scheme-midnight,
+body.scheme-parchment {
+  transition: background-color 0.3s ease;
+}
+
+/* Ensure content areas maintain readability */
+.scheme-ocean .container,
+.scheme-bordeaux .container,
+.scheme-forest .container,
+.scheme-midnight .container {
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+/* --------------------------------------------
+   PRINT OVERRIDES
+   -------------------------------------------- */
+
+@media print {
+  body,
+  body.scheme-ocean,
+  body.scheme-bordeaux,
+  body.scheme-dark,
+  body.scheme-hotdog,
+  body.scheme-forest,
+  body.scheme-midnight,
+  body.scheme-parchment {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  .container {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
