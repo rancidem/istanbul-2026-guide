@@ -113,3 +113,157 @@ a:visited { color: #800080; }
   background: #008000;
   transition: width 0.2s;
 }
+
+/* ============================================
+   PHASE 1 ENHANCEMENTS - Win31 Components
+   ============================================ */
+
+/* Extended color palette */
+:root {
+  --win-teal: #008080;
+  --win-yellow: #ffff00;
+  --win-red: #ff0000;
+  --win-green: #008000;
+}
+
+/* Status Bar */
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+  z-index: 100;
+}
+
+/* Add padding to body to prevent content overlap */
+body {
+  padding-bottom: 28px;
+}
+
+/* Custom Scrollbars - Webkit */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  background: var(--win-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  height: 16px;
+  width: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--win-bg);
+}
+
+/* Firefox scrollbars */
+* {
+  scrollbar-width: 16px;
+  scrollbar-color: var(--win-bg) var(--win-bg);
+}
+
+/* Enhanced Hover/Active States */
+.nav-link:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.nav-link:active,
+.box-raised:active {
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-bottom: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-light);
+}
+
+/* Button base styles */
+.btn {
+  background: var(--win-bg);
+  border: 2px solid;
+  border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+  padding: 4px 12px;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--win-nav);
+  color: var(--win-nav-text);
+}
+
+.btn:active {
+  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
+  padding: 5px 11px 3px 13px;
+}
+
+.btn:disabled {
+  color: var(--win-dark);
+  cursor: not-allowed;
+}
+
+/* Tooltip ("What's This?") */
+[title] {
+  position: relative;
+}
+
+.tooltip {
+  cursor: help;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffcc;
+  border: 1px solid #000;
+  padding: 2px 6px;
+  font-size: 10px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  margin-bottom: 4px;
+}
+
+/* Focus indicators */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.loading {
+  cursor: wait;
+}
+
+/* Print button */
+@media print {
+  .btn,
+  .status-bar {
+    display: none;
+  }
+  body {
+    padding-bottom: 8px;
+  }
+}

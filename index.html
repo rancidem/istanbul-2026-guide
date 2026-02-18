@@ -145,5 +145,31 @@ Check <strong><span style="color:#ff6600;">[P]</span> Picks</strong> for curated
   </div>
 
 </div>
+
+<!-- Status Bar -->
+<div class="status-bar">
+  <span id="status-text">Ready</span>
+  <span>Istanbul 2026 Guide</span>
+</div>
+
+<script>
+  // Update status on page interactions
+  document.addEventListener('DOMContentLoaded', () => {
+    const statusText = document.getElementById('status-text');
+    
+    // Show loading when clicking links
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        statusText.textContent = 'Loading...';
+      });
+    });
+    
+    // Reset status after page loads
+    window.addEventListener('load', () => {
+      statusText.textContent = 'Ready';
+    });
+  });
+</script>
+
 </body>
 </html>
