@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hybrid Unified Theme — Layout Architecture</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/phase2-components.css">
+  <link rel="stylesheet" href="css/theme-hybrid-unified.css">
+  <style>
+    body { padding: 20px; }
+  </style>
+</head>
+<body class="scheme-hybrid-unified">
+
+  <!-- Main Application Window -->
+  <div class="container" style="height:calc(100vh - 40px);display:flex;flex-direction:column;">
+    
+    <!-- Title Bar -->
+    <div class="titlebar active">
+      <span style="font-weight:bold;">Istanbul 2026 Guide</span>
+      <span style="color:#c0c0c0;margin-left:var(--space-md);">—</span>
+      <span style="font-size:11px;opacity:0.8;">Unified Layout Architecture</span>
+      <div class="window-controls">
+        <button class="window-btn">_</button>
+        <button class="window-btn">□</button>
+        <button class="window-btn">×</button>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="hybrid-toolbar">
+      <div class="hybrid-toolbar-group">
+        <button class="hybrid-toolbar-btn" title="Back">
+          <span class="hybrid-toolbar-icon">◀</span>
+        </button>
+        <button class="hybrid-toolbar-btn" title="Forward">
+          <span class="hybrid-toolbar-icon">▶</span>
+        </button>
+      </div>
+      <div class="hybrid-toolbar-group">
+        <button class="hybrid-toolbar-btn">
+          <span class="hybrid-toolbar-icon">📁</span>
+          Open
+        </button>
+        <button class="hybrid-toolbar-btn">
+          <span class="hybrid-toolbar-icon">💾</span>
+          Save
+        </button>
+      </div>
+      <div class="hybrid-toolbar-group">
+        <button class="hybrid-toolbar-btn">
+          <span class="hybrid-toolbar-icon">🖨</span>
+          Print
+        </button>
+      </div>
+      <div style="flex:1;"></div>
+      <div class="hybrid-toolbar-group" style="border-right:none;">
+        <span style="font-size:10px;color:#606060;">Ready</span>
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="hybrid-layout" style="flex:1;overflow:hidden;">
+      
+      <!-- Sidebar -->
+      <div class="sidebar" style="display:flex;flex-direction:column;">
+        <div style="padding:var(--space-sm) var(--space-md);font-size:10px;color:#606060;border-bottom:1px solid #a0a0a0;">
+          NAVIGATION
+        </div>
+        <div style="flex:1;overflow:auto;">
+          <a class="nav-link active" href="#">🏠 Home</a>
+          <a class="nav-link" href="#">🎯 Attractions</a>
+          <a class="nav-link" href="#">🗺️ Neighborhoods</a>
+          <a class="nav-link" href="#">🍽️ Food</a>
+          <a class="nav-link" href="#">🚌 Transport</a>
+          <a class="nav-link" href="#">📍 Places</a>
+          <a class="nav-link" href="#">🎒 Packing</a>
+        </div>
+        <div style="padding:var(--space-md);border-top:1px solid #a0a0a0;">
+          <div style="font-size:10px;color:#606060;margin-bottom:var(--space-xs);">PROGRESS</div>
+          <div class="meter" style="height:8px;">
+            <i style="width:65%;"></i>
+          </div>
+          <div style="font-size:10px;color:#606060;margin-top:var(--space-xs);">65% packed</div>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="hybrid-layout-content">
+        
+        <!-- Header -->
+        <div style="margin-bottom:var(--space-lg);">
+          <h1 style="margin:0 0 var(--space-xs);font-size:18px;">Welcome to Istanbul</h1>
+          <p style="margin:0;color:#606060;font-size:12px;">A unified layout architecture combining the best of Win31 and Mac OS aesthetics.</p>
+        </div>
+
+        <!-- Icon Grid -->
+        <div class="box-group" style="margin-bottom:var(--space-lg);">
+          <div class="box-group-header">
+            <span>📂</span>
+            <span>Quick Access</span>
+          </div>
+          <div class="box-group-content">
+            <div class="hybrid-grid">
+              <div class="hybrid-icon-item selected" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">🕌</span>
+                <span class="hybrid-icon-label">Sights</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">🍽️</span>
+                <span class="hybrid-icon-label">Food</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">🏨</span>
+                <span class="hybrid-icon-label">Hotels</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">🗺️</span>
+                <span class="hybrid-icon-label">Map</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">🚌</span>
+                <span class="hybrid-icon-label">Transit</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">💡</span>
+                <span class="hybrid-icon-label">Tips</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">📸</span>
+                <span class="hybrid-icon-label">Photos</span>
+              </div>
+              <div class="hybrid-icon-item" onclick="selectItem(this)">
+                <span class="hybrid-icon hybrid-icon-lg">⚙️</span>
+                <span class="hybrid-icon-label">Settings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="hybrid-flex" style="gap:var(--space-lg);">
+          
+          <!-- Left Column -->
+          <div style="flex:1;">
+            <div class="box-group">
+              <div class="box-group-header">
+                <span>📊</span>
+                <span>Trip Overview</span>
+              </div>
+              <div class="box-group-content">
+                <table>
+                  <tr>
+                    <td><b>Duration:</b></td>
+                    <td>7 days</td>
+                  </tr>
+                  <tr>
+                    <td><b>Best Season:</b></td>
+                    <td>Spring/Fall</td>
+                  </tr>
+                  <tr>
+                    <td><b>Currency:</b></td>
+                    <td>TRY (€ accepted)</td>
+                  </tr>
+                  <tr>
+                    <td><b>Language:</b></td>
+                    <td>Turkish</td>
+                  </tr>
+                  <tr>
+                    <td><b>Neighborhoods:</b></td>
+                    <td>5 covered</td>
+                  </tr>
+                  <tr>
+                    <td><b>Places:</b></td>
+                    <td>60+ indexed</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="box-sunken" style="margin-top:var(--space-lg);">
+              <div style="font-size:10px;color:#606060;margin-bottom:var(--space-xs);">QUICK ACTIONS</div>
+              <div class="hybrid-flex" style="gap:var(--space-sm);">
+                <button class="btn btn-primary">Open Guide</button>
+                <button class="btn">Export</button>
+                <button class="btn">Share</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div style="flex:1;">
+            <div class="box-group">
+              <div class="box-group-header">
+                <span>📋</span>
+                <span>Itinerary Preview</span>
+              </div>
+              <div class="box-group-content">
+                <div style="margin-bottom:var(--space-md);">
+                  <div style="font-weight:600;margin-bottom:var(--space-xs);">Day 1 — Sultanahmet</div>
+                  <div style="font-size:11px;color:#606060;">Hagia Sophia, Blue Mosque, Basilica Cistern</div>
+                </div>
+                <div style="margin-bottom:var(--space-md);">
+                  <div style="font-weight:600;margin-bottom:var(--space-xs);">Day 2 — Beyoğlu</div>
+                  <div style="font-size:11px;color:#606060;">İstiklal Caddesi, Galata Tower, Karaköy</div>
+                </div>
+                <div style="margin-bottom:var(--space-md);">
+                  <div style="font-weight:600;margin-bottom:var(--space-xs);">Day 3 — Asian Side</div>
+                  <div style="font-size:11px;color:#606060;">Kadıköy Market, Moda, ferry ride</div>
+                </div>
+                <div>
+                  <div style="font-weight:600;margin-bottom:var(--space-xs);">Days 4-7 — Exploration</div>
+                  <div style="font-size:11px;color:#606060;">Grand Bazaar, Bosphorus cruise, Princes' Islands</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-raised" style="margin-top:var(--space-lg);">
+              <div style="font-size:10px;color:#606060;margin-bottom:var(--space-xs);">SYSTEM</div>
+              <div style="font-size:11px;">
+                <div>Theme: Hybrid Unified</div>
+                <div>Layout: Grid + Flex</div>
+                <div>Components: 15+ unified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span>Ready</span>
+      <span>8 items selected | 395 MB available</span>
+    </div>
+
+  </div>
+
+  <!-- Dialog Demo -->
+  <div class="dialog-overlay" id="dialog">
+    <div class="dialog-box">
+      <div class="dialog-titlebar">
+        <span>Confirm Action</span>
+        <button onclick="closeDialog()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:16px;">×</button>
+      </div>
+      <div class="dialog-content">
+        <p>Are you sure you want to proceed with this action?</p>
+      </div>
+      <div class="dialog-buttons">
+        <button class="btn" onclick="closeDialog()">Cancel</button>
+        <button class="btn btn-primary" onclick="closeDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Icon selection
+    function selectItem(item) {
+      document.querySelectorAll('.hybrid-icon-item').forEach(i => i.classList.remove('selected'));
+      item.classList.add('selected');
+    }
+
+    // Dialog
+    function closeDialog() {
+      document.getElementById('dialog').classList.remove('active');
+    }
+
+    // Double-click to open dialog
+    document.querySelectorAll('.hybrid-icon-item').forEach(item => {
+      item.addEventListener('dblclick', () => {
+        document.getElementById('dialog').classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

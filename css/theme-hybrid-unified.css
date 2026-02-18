@@ -1,0 +1,536 @@
+/* ============================================
+   HYBRID UNIFIED THEME
+   Bridges Win31 and Retro Mac aesthetics
+   Layout architecture consistency focus
+   ============================================ */
+
+.scheme-hybrid-unified {
+  /* Neutral base that works with both systems */
+  --desktop-bg: #708090;          /* Slate gray - neutral, professional */
+  --window-bg: #f0f0f0;           /* Light gray - readable */
+  --window-border: #404040;       /* Dark gray border */
+  
+  /* Unified titlebar - subtle gradient, no stripes */
+  --titlebar-bg: linear-gradient(180deg, #606060 0%, #505050 100%);
+  --titlebar-text: #ffffff;
+  --titlebar-active: linear-gradient(180deg, #4a6fa5 0%, #3a5f95 100%);
+  
+  /* Consistent spacing system */
+  --space-xs: 2px;
+  --space-sm: 4px;
+  --space-md: 8px;
+  --space-lg: 12px;
+  --space-xl: 16px;
+  
+  /* Unified border style */
+  --border-raised: 1px solid #808080;
+  --border-sunken: 1px solid #a0a0a0;
+  --shadow-light: 1px 1px 0 #ffffff;
+  --shadow-dark: 1px 1px 0 #404040;
+  
+  /* Typography */
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Courier New", monospace;
+  
+  /* Standard colors */
+  --color-text: #1a1a1a;
+  --color-text-muted: #606060;
+  --color-accent: #4a6fa5;
+  --color-success: #4a7c23;
+  --color-warning: #c9a227;
+  --color-error: #a03030;
+}
+
+/* --------------------------------------------
+   BASE LAYOUT ARCHITECTURE
+   -------------------------------------------- */
+.scheme-hybrid-unified body {
+  background: var(--desktop-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  padding: var(--space-lg);
+}
+
+/* Container - unified window chrome */
+.scheme-hybrid-unified .container {
+  background: var(--window-bg);
+  border: 1px solid var(--window-border);
+  box-shadow: 
+    0 0 0 1px #ffffff,
+    2px 2px 8px rgba(0,0,0,0.2);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------
+   UNIFIED TITLEBAR
+   Subtle gradient, clean, works for both styles
+   -------------------------------------------- */
+.scheme-hybrid-unified .titlebar {
+  background: var(--titlebar-bg);
+  color: var(--titlebar-text);
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  border-bottom: 1px solid #404040;
+}
+
+.scheme-hybrid-unified .titlebar.active {
+  background: var(--titlebar-active);
+}
+
+/* Window controls - simplified, works for both */
+.scheme-hybrid-unified .window-controls {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: auto;
+}
+
+.scheme-hybrid-unified .window-btn {
+  width: 16px;
+  height: 14px;
+  background: linear-gradient(180deg, #e0e0e0 0%, #c0c0c0 100%);
+  border: 1px solid #606060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.scheme-hybrid-unified .window-btn:hover {
+  background: linear-gradient(180deg, #f0f0f0 0%, #d0d0d0 100%);
+}
+
+/* --------------------------------------------
+   UNIFIED TOOLBAR
+   Clean, functional, consistent
+   -------------------------------------------- */
+.hybrid-toolbar {
+  background: linear-gradient(180deg, #e8e8e8 0%, #d8d8d8 100%);
+  border-bottom: 1px solid #a0a0a0;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hybrid-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0 var(--space-sm);
+  border-right: 1px solid #b0b0b0;
+}
+
+.hybrid-toolbar-group:last-child {
+  border-right: none;
+}
+
+.hybrid-toolbar-btn {
+  background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+  border: 1px solid #a0a0a0;
+  border-radius: 2px;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 24px;
+}
+
+.hybrid-toolbar-btn:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  border-color: #808080;
+}
+
+.hybrid-toolbar-btn:active {
+  background: #d0d0d0;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.hybrid-toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hybrid-toolbar-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------
+   UNIFIED SIDEBAR
+   Consistent navigation
+   -------------------------------------------- */
+.scheme-hybrid-unified .sidebar {
+  background: #e8e8e8;
+  border-right: 1px solid #a0a0a0;
+}
+
+.scheme-hybrid-unified .nav-link {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 11px;
+  border-left: 3px solid transparent;
+  transition: all 0.1s;
+}
+
+.scheme-hybrid-unified .nav-link:hover {
+  background: rgba(74, 111, 165, 0.1);
+  border-left-color: var(--color-accent);
+}
+
+.scheme-hybrid-unified .nav-link.active {
+  background: var(--color-accent);
+  color: #fff;
+  border-left-color: #2a4f85;
+}
+
+/* --------------------------------------------
+   UNIFIED BOXES
+   Clean, consistent containers
+   -------------------------------------------- */
+.scheme-hybrid-unified .box-raised {
+  background: #ffffff;
+  border: 1px solid #a0a0a0;
+  box-shadow: var(--shadow-light);
+  padding: var(--space-md);
+}
+
+.scheme-hybrid-unified .box-sunken {
+  background: #f5f5f5;
+  border: 1px solid #a0a0a0;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.05);
+  padding: var(--space-md);
+}
+
+.scheme-hybrid-unified .box-group {
+  background: #ffffff;
+  border: 1px solid #a0a0a0;
+  margin-bottom: var(--space-md);
+}
+
+.scheme-hybrid-unified .box-group-header {
+  background: linear-gradient(180deg, #f0f0f0 0%, #e0e0e0 100%);
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  border-bottom: 1px solid #a0a0a0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.scheme-hybrid-unified .box-group-content {
+  padding: var(--space-md);
+}
+
+/* --------------------------------------------
+   UNIFIED ICONS
+   Simple, scalable, consistent
+   -------------------------------------------- */
+.hybrid-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+  border: 1px solid #a0a0a0;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.hybrid-icon-sm {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.hybrid-icon-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+
+/* Icon container */
+.hybrid-icon-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  cursor: pointer;
+  border-radius: 3px;
+  min-width: 64px;
+}
+
+.hybrid-icon-item:hover {
+  background: rgba(74, 111, 165, 0.1);
+}
+
+.hybrid-icon-item.selected {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.hybrid-icon-item.selected .hybrid-icon {
+  background: #fff;
+  border-color: #fff;
+}
+
+.hybrid-icon-label {
+  font-size: 10px;
+  text-align: center;
+  max-width: 72px;
+  word-wrap: break-word;
+}
+
+/* --------------------------------------------
+   UNIFIED BUTTONS
+   Clean, consistent action elements
+   -------------------------------------------- */
+.scheme-hybrid-unified .btn {
+  background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+  border: 1px solid #808080;
+  border-radius: 2px;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.scheme-hybrid-unified .btn:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  border-color: #606060;
+}
+
+.scheme-hybrid-unified .btn:active {
+  background: #d8d8d8;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.scheme-hybrid-unified .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scheme-hybrid-unified .btn-primary {
+  background: linear-gradient(180deg, #5a7fb5 0%, #4a6fa5 100%);
+  color: #fff;
+  border-color: #3a5f95;
+}
+
+.scheme-hybrid-unified .btn-primary:hover {
+  background: linear-gradient(180deg, #6a8fc5 0%, #5a7fb5 100%);
+}
+
+/* --------------------------------------------
+   UNIFIED INPUTS
+   Consistent form controls
+   -------------------------------------------- */
+.scheme-hybrid-unified input[type="text"],
+.scheme-hybrid-unified input[type="email"],
+.scheme-hybrid-unified input[type="password"],
+.scheme-hybrid-unified textarea,
+.scheme-hybrid-unified select {
+  background: #ffffff;
+  border: 1px solid #a0a0a0;
+  padding: var(--space-xs) var(--space-sm);
+  font-family: inherit;
+  font-size: 11px;
+  min-height: 24px;
+}
+
+.scheme-hybrid-unified input:focus,
+.scheme-hybrid-unified textarea:focus,
+.scheme-hybrid-unified select:focus {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+/* --------------------------------------------
+   UNIFIED TABLES
+   Clean data display
+   -------------------------------------------- */
+.scheme-hybrid-unified table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.scheme-hybrid-unified th {
+  background: linear-gradient(180deg, #f0f0f0 0%, #e0e0e0 100%);
+  font-weight: 600;
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.scheme-hybrid-unified td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.scheme-hybrid-unified tr:hover {
+  background: rgba(74, 111, 165, 0.05);
+}
+
+/* --------------------------------------------
+   UNIFIED SCROLLBAR
+   Clean, minimal
+   -------------------------------------------- */
+.scheme-hybrid-unified ::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+  background: #e0e0e0;
+}
+
+.scheme-hybrid-unified ::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  border-radius: 1px;
+}
+
+.scheme-hybrid-unified ::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+.scheme-hybrid-unified ::-webkit-scrollbar-button {
+  background: #e0e0e0;
+  border: 1px solid #808080;
+  height: 14px;
+}
+
+/* --------------------------------------------
+   UNIFIED STATUS BAR
+   -------------------------------------------- */
+.scheme-hybrid-unified .status-bar {
+  background: linear-gradient(180deg, #e8e8e8 0%, #d8d8d8 100%);
+  border-top: 1px solid #a0a0a0;
+  padding: var(--space-xs) var(--space-md);
+  font-size: 10px;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------
+   UNIFIED DIALOG
+   -------------------------------------------- */
+.scheme-hybrid-unified .dialog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.scheme-hybrid-unified .dialog-overlay.active {
+  display: flex;
+}
+
+.scheme-hybrid-unified .dialog-box {
+  background: var(--window-bg);
+  border: 1px solid var(--window-border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  min-width: 320px;
+  max-width: 90vw;
+}
+
+.scheme-hybrid-unified .dialog-titlebar {
+  background: var(--titlebar-active);
+  color: #fff;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scheme-hybrid-unified .dialog-content {
+  padding: var(--space-lg);
+}
+
+.scheme-hybrid-unified .dialog-buttons {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  border-top: 1px solid #e0e0e0;
+}
+
+/* --------------------------------------------
+   LAYOUT UTILITIES
+   -------------------------------------------- */
+.hybrid-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 100%;
+}
+
+.hybrid-layout-content {
+  padding: var(--space-md);
+  overflow: auto;
+}
+
+.hybrid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: var(--space-md);
+}
+
+.hybrid-flex {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.hybrid-flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* --------------------------------------------
+   PRINT STYLES
+   -------------------------------------------- */
+@media print {
+  .scheme-hybrid-unified body {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+  
+  .scheme-hybrid-unified .container {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  .scheme-hybrid-unified .titlebar,
+  .scheme-hybrid-unified .hybrid-toolbar,
+  .scheme-hybrid-unified .status-bar {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+  }
+}
